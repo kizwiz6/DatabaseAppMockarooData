@@ -11,7 +11,7 @@ namespace DatabaseAppMockarooData.Models.Services
     /// </summary>
     public class HardCodedSampleDataRepository : IProductDataService
     {
-        List<ProductModel> productsList = new List<ProductModel>(); // Class member variable.
+        static List<ProductModel> productsList = new List<ProductModel>(); // Class member variable.
 
         public int Delete(ProductModel model)
         {
