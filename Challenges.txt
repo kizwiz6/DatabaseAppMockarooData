@@ -1,0 +1,8 @@
+﻿Coding challenge: create another model.
+To reinforce the process of managing models, controller and views, create another model class in addition to the Products Model. This will go in the Models folder. Create a controller and View to display the new item in a table.
+
+1. Create a class for another object which represents a product (Movie, Car, Airline Ticket, etc).
+2. Create another Controller and View.
+3. Generate some sample data for the new item.
+4. Display the resulting list in a table.
+5. Take a screenshot of the app at this stage. Pate it into a Word document and caption the image with a brief explanation of what you just demonstrated. 
