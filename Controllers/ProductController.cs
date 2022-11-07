@@ -16,6 +16,19 @@ namespace DatabaseAppMockarooData.Controllers
             return View(products.GetAllProducts());
         }
 
+        /// <summary>
+        /// New method that will accept a string called search Term. Provides a way to look for something in our database. Returns a view.
+        /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <returns></returns>
+        public IActionResult SearchResults(string searchTerm)
+        {
+            ProductsDAO products = new ProductsDAO(); // Gets access to the database via instance.
+
+            List<ProductModel> productList = products.SearchProducts(searchTerm);
+            return View("index", productList);
+        }
+
         public IActionResult Message()
         {
             return View("message");

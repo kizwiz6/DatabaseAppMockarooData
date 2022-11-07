@@ -54,7 +54,33 @@ namespace DatabaseAppMockarooData.Models.Services
 
         public List<ProductModel> SearchProducts(string searchTerm)
         {
-            throw new NotImplementedException();
+            // Create a list of products (type ProductModel) for whatever products found.
+            List<ProductModel> foundProducts = new List<ProductModel>();
+
+            string sqlStatement = "SELECT * FROM dbo.Products WHERE Name LIKE @Name"; // prepared statement
+
+            // using SQL connnection provided with connectionSring. Talks to the database.
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("@Name", '%' + searchTerm + '%');
+
+                try
+                {
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        foundProducts.Add(new ProductModel { Id = (int)reader[0], Name = (string)reader[1], Price = (decimal)reader[2], Description = (string)reader[3] });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return foundProducts;
         }
 
         public int Update(ProductModel model)
