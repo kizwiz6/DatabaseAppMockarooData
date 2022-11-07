@@ -29,6 +29,11 @@ namespace DatabaseAppMockarooData.Controllers
             return View("index", productList);
         }
 
+        public IActionResult SearchForm()
+        {
+            return View();
+        }
+
         public IActionResult Message()
         {
             return View("message");
