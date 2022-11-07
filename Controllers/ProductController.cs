@@ -10,9 +10,10 @@ namespace DatabaseAppMockarooData.Controllers
     {
         public IActionResult Index()
         {
-            HardCodedSampleDataRepository hardCodedSampleDataRepository = new HardCodedSampleDataRepository();
+            // Instantiate a new copy of ProductsDAO
+            ProductsDAO products = new ProductsDAO();
 
-            return View(hardCodedSampleDataRepository.GetAllProducts());
+            return View(products.GetAllProducts());
         }
 
         public IActionResult Message()
