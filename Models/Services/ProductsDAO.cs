@@ -11,6 +11,10 @@ namespace DatabaseAppMockarooData.Models.Services
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Creates a list to get all products.
+        /// </summary>
+        /// <returns></returns>
         public List<ProductModel> GetAllProducts()
         {
             // Create a list of products (type ProductModel) for whatever products found.
